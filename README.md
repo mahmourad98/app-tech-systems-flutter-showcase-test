@@ -486,10 +486,18 @@ when done, issue a pull request to your own repo and send the link to the pull r
 ### Task
 
 familiarize yourself with `README.md` file and the architecture description briefly
+
 inside `AppInitPresenter` open the login page using `AppInitNavigator` after `appInitUseCase` finishes successfully
+
 enable login button when both fields are filled (use `LoginViewModel` and `LoginPresentationModel` to hold a bool `isLoginEnabled` and reference this in view)
+
 implement presentation model to disable login button if no text is provided in either username or password field
+
+
 call login use case to perform login operation upon clicking login button (LoginUseCase is already created for you, you just need to inject it into presenter and use it, see AppInitPresenter for reference)
+
 while login use case is working, show `CircularProgressIndicator` in place of login button. (see AppInitPage for reference)
+
 if the user logged in successfully, show success dialog using `AlertDialogRoute`
+
 if login fails, show error dialog using `ErrorDialogRoute`
