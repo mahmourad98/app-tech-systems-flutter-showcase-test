@@ -19,28 +19,26 @@ class AppInitPage extends StatefulWidget with HasPresenter<AppInitPresenter> {
   State<AppInitPage> createState() => _AppInitPageState();
 }
 
-class _AppInitPageState extends State<AppInitPage>
-    with PresenterStateMixin<AppInitViewModel, AppInitPresenter, AppInitPage> {
+class _AppInitPageState extends State<AppInitPage> with PresenterStateMixin<AppInitViewModel, AppInitPresenter, AppInitPage> {
   @override
   void initState() {
     super.initState();
     presenter.onInit();
   }
 
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        body: stateObserver(
-          builder: (context, state) => Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Assets.images.logo.image(),
-                const SizedBox(height: 16),
-                if (state.isLoading) const CircularProgressIndicator(),
-              ],
-            ),
-          ),
+  @override Widget build(BuildContext context) => Scaffold(
+    body: stateObserver(
+      builder: (context, state) => Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Assets.images.logo.image(),
+            const SizedBox(height: 16),
+            if (state.isLoading) const CircularProgressIndicator(),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
